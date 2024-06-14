@@ -1,0 +1,121 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+.main{
+    display: flex;
+    gap: 10px;
+}
+.sidebar{
+    box-shadow: 4px 1px 6px  rgb(161, 138, 203);
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    top: 0;
+    left: 0;
+    width: 12rem;
+    height: 94vh;
+    bottom: 0;
+    position: sticky;
+    padding-top: 40px;
+
+}
+.create{
+    margin-top: 4rem;
+    background-color: aqua;
+    height: 3rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: x-large;
+    color: white;
+}
+.topbar{
+    margin-top: 10px;
+    background-color: bisque;
+    height: 4rem;
+    border-radius: 10px;
+    width: 95vw;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.topbar > p{
+    margin-left: 1rem;
+    font-size: xx-large;
+    text-transform: capitalize;
+    
+}
+.profile{
+    margin-right: 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.image{
+    width: 50px;
+    height: 50px;
+    background-color: gray;
+    border-radius: 50%;
+
+}
+.profile > p{
+    text-transform: capitalize;
+    font-size: large;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+.notebookarea{
+    margin-left: 11.5rem;
+    margin-top: -42rem;
+    border-radius: 10px;
+    height: 86vh;
+    box-shadow: 1px 1px 2px 3px yellowgreen;
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 20px; /* Adjust the gap between cards */
+    padding-top: 20px;
+    flex-direction: column;
+    padding-left: 20px;
+}
+
+.note {
+    background-color: #f0f0f0;
+    padding: 10px;
+    border: 1px solid #ccc;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    height: 12rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+  }
+.note > h3 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+.note > small{
+    text-align: center;
+    margin-top: 20px;
+}
+
+.actions{
+    margin-top: 50px;
+    display: flex;
+    justify-content: center;
+}
+button {
+  margin-left: 5px;
+  padding: 5px 10px;
+  cursor: pointer;
+}
+
+.update-btn {
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+}
+
+.delete-btn {
+  background-color: #f44336;
+  color: white;
+  border: none;
+}

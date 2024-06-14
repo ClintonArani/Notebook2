@@ -1,0 +1,31 @@
+<body>
+    <div class="main">
+        <div class="sidebar">
+            <h1>Features</h1>
+        <div class="create">
+            <button (click)="goToCreateNote()">Create Note</button>
+        </div>
+        </div>
+        <div class="topbar">
+            <p>my notebook</p>
+            <div class="profile">
+                <span class="image"></span>
+                <p>welcome Mark!</p>
+            </div>
+        </div>
+    </div>
+    <div class="notebookarea">
+        <div *ngFor="let note of notes" class="note">
+                <h3>{{ note.title }}</h3>
+                <p>{{ note.content }}</p>
+                <small>{{ note.date }}</small>
+                <div class="actions">
+                   <button class="update-btn" >Update</button>
+                   <button class="delete-btn">Delete</button> 
+                </div>
+                
+        </div>
+    </div>
+      
+    
+</body>

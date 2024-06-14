@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Note</title>
+</head>
+<body>
+    <div class="form-container">
+        <form (ngSubmit)="onSubmit(noteForm)" #noteForm="ngForm">
+            <h2>Create a New Note</h2>
+            <div class="form-group">
+                <label for="title">Title</label>
+                <input type="text" id="title" name="title" ngModel required>
+            </div>
+            <div class="form-group">
+                <label for="content">Content</label>
+                <textarea id="content" name="content" rows="5" ngModel required></textarea>
+            </div>
+            <div class="form-group">
+                <label for="date">Date</label>
+                <input type="date" id="date" name="date" ngModel required>
+            </div>
+            <button type="submit" [disabled]="!noteForm.valid">Create Note</button>
+        </form>
+    </div>
+</body>
+</html>
