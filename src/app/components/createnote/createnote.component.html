@@ -8,20 +8,30 @@
 <body>
     <div class="form-container">
         <form (ngSubmit)="onSubmit(noteForm)" #noteForm="ngForm">
-            <h2>Create a New Note</h2>
+            <h2>{{ note.id ? 'Update Note' : 'Create a New Note' }}</h2>
             <div class="form-group">
                 <label for="title">Title</label>
-                <input type="text" id="title" name="title" ngModel required>
+                <input type="text" id="title" name="title" [(ngModel)]="note.title" required>
+                <div *ngIf="noteForm.submitted && !noteForm.controls['title']?.valid" class="error">
+                    Title is required.
+                </div>
             </div>
             <div class="form-group">
                 <label for="content">Content</label>
-                <textarea id="content" name="content" rows="5" ngModel required></textarea>
+                <textarea id="content" name="content" rows="5" [(ngModel)]="note.content" required></textarea>
+                <div *ngIf="noteForm.submitted && !noteForm.controls['content']?.valid" class="error">
+                    Content is required.
+                </div>
             </div>
             <div class="form-group">
                 <label for="date">Date</label>
-                <input type="date" id="date" name="date" ngModel required>
+                <input type="date" id="date" name="date" [(ngModel)]="note.date" required>
+                <div *ngIf="noteForm.submitted && !noteForm.controls['date']?.valid" class="error">
+                    Date is required.
+                </div>
             </div>
-            <button type="submit" [disabled]="!noteForm.valid">Create Note</button>
+            <button type="submit" [disabled]="!noteForm.valid">{{ note.id ? 'Update Note' : 'Create Note' }}</button>
+            <div *ngIf="successMessage" class="success-message">{{ successMessage }}</div>
         </form>
     </div>
 </body>

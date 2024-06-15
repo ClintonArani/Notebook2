@@ -1,14 +1,16 @@
 import { Injectable } from '@angular/core';
+import { Note } from './interfaces/note.interface';
+
 
 @Injectable({
   providedIn: 'root'
 })
 export class NoteService {
   private localStorageKey = 'notes';
-  private notes: { title: string; content: string; date: string }[] = [];
+  private notes: Note[] = [];
 
   constructor() {
-    this.loadNotes(); // Load notes from local storage when service initializes
+    this.loadNotes();
   }
 
   private loadNotes(): void {
@@ -22,12 +24,26 @@ export class NoteService {
     localStorage.setItem(this.localStorageKey, JSON.stringify(this.notes));
   }
 
-  addNote(note: { title: string; content: string; date: string }): void {
+  addNote(note: Note): void {
+    note.id = this.notes.length ? this.notes[this.notes.length - 1].id + 1 : 1;
     this.notes.push(note);
-    this.saveNotes(); // Save notes to local storage after adding
+    this.saveNotes();
   }
 
-  getNotes(): { title: string; content: string; date: string }[] {
+  getNotes(): Note[] {
     return this.notes;
+  }
+
+  updateNote(updatedNote: Note): void {
+    const index = this.notes.findIndex(note => note.id === updatedNote.id);
+    if (index !== -1) {
+      this.notes[index] = updatedNote;
+      this.saveNotes();
+    }
+  }
+
+  deleteNote(id: number): void {
+    this.notes = this.notes.filter(note => note.id !== id);
+    this.saveNotes();
   }
 }

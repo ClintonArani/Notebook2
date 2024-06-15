@@ -17,6 +17,19 @@ body {
     max-width: 400px;
 }
 
+.error {
+    color: red;
+    font-size: 0.8em;
+    margin-top: 5px;
+  }
+  
+  .success-message {
+    color: green;
+    font-size: 1em;
+    margin-top: 10px;
+  }
+  
+
 h2 {
     margin-top: 0;
     color: #333;
